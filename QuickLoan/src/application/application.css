@@ -1,1 +1,91 @@
-/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+ @import url('https://fonts.googleapis.com/css2?family=Anek+Kannada:wght@300;400;500&display=swap');
+
+
+.button-rounded-left {
+    -fx-border-radius: 15px 0 0 15px; 
+    -fx-background-radius: 15px 0 0 15px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 30, 0, 0, 3) 
+                dropshadow(gaussian, rgba(0, 0, 0, 0.5), 30, 0, 3, 0);
+}
+.button-rounded-right {
+    -fx-border-radius: 0 15px 15px 0; 
+    -fx-background-radius: 0 15px 15px 0;
+     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 30, 0, 0, 3) 
+                dropshadow(gaussian, rgba(0, 0, 0, 0.5), 30, 0, 3, 0) 
+                dropshadow(gaussian, rgba(0, 0, 0, 0.5), 30, 3, 0, 0);
+}
+.label1{
+	-fx-font-family: 'Anek Kannada', sans-serif;
+}
+.inputusername_regester{
+	-fx-border-color: transparent transparent white transparent;
+	-fx-background-color: transparent;
+	-fx-border-width: 0 0 1 0;
+	-fx-padding: 0 0 4 0;
+	-fx-text-fill: #fff;
+}
+.inputusername_regester:focused{
+	-fx-border-color: #64D7C4;
+}
+.termofservice{
+	-fx-underline: true;
+	-fx-text-fill: #BDA0E2;
+}
+.check-box {
+    
+    -fx-background-color: transparent;
+}
+.check-box:selected {
+    -fx-border-color: #BDA0E2; 
+    -fx-background-color: #BDA0E2;
+}
+.button-signup {
+	-fx-background-color: #BDA0E2;
+	-fx-border-radius: 15 15 15 15; 
+    -fx-background-radius: 15 15 15 15; 
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.7), 30, 0, 0, 3);
+}
+.button-signup:hover {
+	-fx-background-color: #BDA0E2;
+	
+}
+.custom-textfield {
+    -fx-background-color: transparent;
+    -fx-border-color: white;
+    -fx-border-radius: 7px;
+    -fx-padding: 5px 10px;
+    -fx-text-fill: white;
+}
+
+.custom-textfield:focused {
+    -fx-border-color: #64D7C4; /* Màu sắc khi TextField được focus. Bạn có thể thay đổi nếu muốn. */
+}
+
+.label-floating {
+    -fx-fill: white;
+    -fx-translate-y: 20;
+    -fx-background-color: #000; /* Màu nền của scene, để label "Name" không hiển thị phía sau textfield */
+}
+.buttonLogin{
+	-fx-effect: dropshadow(gaussian, rgba(189,160,226, 0.4), 30, 0, 0, 3);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
