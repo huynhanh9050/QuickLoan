@@ -1,22 +1,37 @@
 package application.login_register;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
-public class VerifyEmail4Controller {
+public class VerifyEmail4Controller implements Initializable {
 
     @FXML
     private Button buttonsetStarted;
 
+    @FXML
+    private ImageView imageView;
 
     @FXML
     private AnchorPane pane5;
 
     private String username;
     private String password;
+    
+    @Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+    	Image image = new Image(getClass().getResourceAsStream("/application/login_register/libs/image2.png"));
+        imageView.setImage(image);
+		
+	}
     
     @FXML
     void gotoLogin(ActionEvent event) {
@@ -40,5 +55,6 @@ public class VerifyEmail4Controller {
     public void setPassword(String password) {
     	this.password = password;
     }
+	
 
 }

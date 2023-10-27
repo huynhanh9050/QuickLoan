@@ -11,10 +11,9 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane fx:id="pane3" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="414.0" prefWidth="350.0" style="-fx-background-color: #33455B;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.login_register.VerifyEmail2Controller">
    <children>
-      <ImageView fitHeight="156.0" fitWidth="148.0" layoutX="101.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imageView" fitHeight="156.0" fitWidth="148.0" layoutX="101.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../../Downloads/Screenshot_2023-10-26_180643-removebg-preview%20(1).png" />
          </image>

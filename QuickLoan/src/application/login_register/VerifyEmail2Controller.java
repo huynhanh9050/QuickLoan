@@ -11,6 +11,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 public class VerifyEmail2Controller implements Initializable {
@@ -32,6 +34,10 @@ public class VerifyEmail2Controller implements Initializable {
 
     @FXML
     private Button verifyOTP;
+    
+    @FXML
+    private ImageView imageView;
+    
     
     private String username;
     private String fullname;
@@ -71,6 +77,9 @@ public class VerifyEmail2Controller implements Initializable {
 	    setOTPFieldListener(otpField2, otpField3, otpField1);
 	    setOTPFieldListener(otpField3, otpField4, otpField2);
 	    setOTPFieldListener(otpField4, null, otpField3); // Không có ô phía sau cho ô cuối cùng
+	    
+	    Image image = new Image(getClass().getResourceAsStream("/application/login_register/libs/image3.png"));
+	    imageView.setImage(image);
 	}
     private void setOTPFieldListener(TextField currentField, TextField nextField, TextField previousField) {
         currentField.textProperty().addListener((observable, oldValue, newValue) -> {

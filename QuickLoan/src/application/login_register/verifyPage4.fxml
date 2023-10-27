@@ -12,7 +12,7 @@
 
 <AnchorPane fx:id="pane5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="414.0" prefWidth="350.0" style="-fx-background-color: #33455B;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.login_register.VerifyEmail4Controller">
    <children>
-      <ImageView fitHeight="99.0" fitWidth="150.0" layoutX="102.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imageView" fitHeight="99.0" fitWidth="150.0" layoutX="102.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../../Downloads/Screenshot_2023-10-26_140429-removebg-preview%20(1).png" />
          </image>

@@ -79,7 +79,7 @@ public class LoginController implements Initializable {
      	
        
         	if (UserSession.isInitialized()) {
-        	    System.out.println("Session ID đa duoc lay, ngon roi anh em");
+        	    System.out.println("Session ID da duoc lay, ngon roi anh em");
         	} else {
         	    UserSession.getInstace(account.getId());
         	    System.out.println("Lấy Session ID mới");
