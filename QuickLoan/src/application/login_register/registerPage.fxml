@@ -10,7 +10,7 @@
 
 <AnchorPane fx:id="pane1" prefHeight="414.0" prefWidth="350.0" style="-fx-background-color: #33455B;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.login_register.RegisterPageController">
    <children>
-      <Label layoutX="49.0" layoutY="106.0" text="USERNAME" textFill="#eae3e3" AnchorPane.bottomAnchor="289.0" AnchorPane.topAnchor="106.0">
+      <Label layoutX="49.0" layoutY="106.0" text="USERNAME *" textFill="#eae3e3" AnchorPane.bottomAnchor="289.0" AnchorPane.topAnchor="106.0">
          <font>
             <Font name="System Bold" size="11.0" />
          </font>
@@ -20,7 +20,7 @@
             <Font size="11.0" />
          </font>
       </TextField>
-      <Label layoutX="50.0" layoutY="166.0" text="EMAIL" textFill="#eae3e3" AnchorPane.topAnchor="172.0">
+      <Label layoutX="50.0" layoutY="166.0" text="EMAIL *" textFill="#eae3e3" AnchorPane.topAnchor="172.0">
          <font>
             <Font name="System Bold" size="11.0" />
          </font>
@@ -30,12 +30,12 @@
             <Font size="11.0" />
          </font>
       </TextField>
-      <Label layoutX="50.0" layoutY="234.0" text="PASSWORD" textFill="#eae3e3" AnchorPane.topAnchor="237.0">
+      <Label layoutX="50.0" layoutY="234.0" text="PASSWORD *" textFill="#eae3e3" AnchorPane.topAnchor="237.0">
          <font>
             <Font name="System Bold" size="11.0" />
          </font>
       </Label>
-      <TextField fx:id="inputPassword" layoutX="50.0" layoutY="258.0" prefHeight="26.0" prefWidth="245.0" promptText="Enter your fullname" styleClass="inputusername_regester" stylesheets="@../application.css">
+      <TextField fx:id="inputPassword" layoutX="50.0" layoutY="258.0" prefHeight="26.0" prefWidth="245.0" promptText="Enter your password" styleClass="inputusername_regester" stylesheets="@../application.css">
          <font>
             <Font size="11.0" />
          </font>
@@ -52,26 +52,26 @@
       </Label>
       <Button fx:id="button_signUp" layoutX="49.0" layoutY="329.0" mnemonicParsing="false" onAction="#goToVerifyPage1" prefHeight="24.0" prefWidth="84.0" styleClass="button-signup" stylesheets="@../application.css" text="Sign Up" textFill="WHITE">
          <font>
-            <Font size="11.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
       </Button>
-      <CheckBox fx:id="inputTerm" layoutX="49.0" layoutY="293.0" mnemonicParsing="false" stylesheets="@../application.css">
+      <CheckBox fx:id="inputTerm" layoutX="49.0" layoutY="293.0" mnemonicParsing="false" selected="true" stylesheets="@../application.css">
          <font>
             <Font size="9.0" />
          </font>
       </CheckBox>
-      <Button layoutX="135.0" layoutY="331.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="I'm already member" textFill="#a49c9c">
+      <Button fx:id="button_imalready" layoutX="135.0" layoutY="331.0" mnemonicParsing="false" onAction="#gotoSignIn" style="-fx-background-color: transparent;" text="I'm already member" textFill="#a49c9c">
          <font>
-            <Font size="9.0" />
+            <Font size="10.0" />
          </font>
       </Button>
-      <Line endX="38.79998779296875" endY="-21.399993896484375" layoutX="181.0" layoutY="369.0" opacity="0.5" startX="-38.399993896484375" startY="-21.399993896484375" stroke="#bda0e2" />
+      <Line endX="48.666656494140625" endY="-21.399993896484375" layoutX="181.0" layoutY="369.0" opacity="0.5" startX="-38.399993896484375" startY="-21.399993896484375" stroke="#bda0e2" />
       <Label alignment="CENTER" layoutX="-1.0" layoutY="1.0" prefHeight="30.0" prefWidth="351.0" text="SIGN UP" textFill="WHITE" AnchorPane.bottomAnchor="383.0" AnchorPane.topAnchor="1.0">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="50.0" layoutY="43.0" text="FULL NAME" textFill="#eae3e3" AnchorPane.bottomAnchor="355.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="43.0">
+      <Label layoutX="50.0" layoutY="43.0" text="FULL NAME *" textFill="#eae3e3" AnchorPane.bottomAnchor="355.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="43.0">
          <font>
             <Font name="System Bold" size="11.0" />
          </font>

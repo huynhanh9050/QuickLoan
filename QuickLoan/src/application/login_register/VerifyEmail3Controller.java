@@ -4,6 +4,7 @@ import org.mindrot.jbcrypt.BCrypt;
 
 
 import application.entities.Account;
+import application.login_register.RegisterPageController.EmailValidator;
 import application.model.AccountModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -49,10 +50,54 @@ public class VerifyEmail3Controller {
     	
     	Account account = new Account();
     	try {
-    		username = inputUsername.getText();
+    		
+    		email = inputEmail.getText();
+      	  	username = inputUsername.getText();
+      	  	fullname = inputFullName.getText();
     		account.setUsername(username);
     		
-        	String email = inputEmail.getText();
+        	
+        	
+        	if(fullname.isEmpty()) {
+          		Alert alert = new Alert(AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setContentText("Vui lòng điền full name");
+                alert.show();
+                return;
+          	  }
+          	  if(username.isEmpty()) {
+          		  Alert alert = new Alert(AlertType.ERROR);
+          		  alert.setTitle("Error");
+          		  alert.setContentText("Vui lòng điền username");
+          		  alert.show();
+          		  return;
+          	  }
+          	  	
+          	  if (!EmailValidator.isValid(email) || email.isEmpty()) {
+                  Alert alert = new Alert(AlertType.ERROR);
+                  alert.setTitle("Error");
+                  alert.setContentText("Địa chỉ email không hợp lệ!");
+                  alert.show();
+                  return;
+              }
+          	  	
+          	  	AccountModel accountModel = new AccountModel();
+          	  	if(accountModel.findByEmail(email) != null ) {
+          	  	Alert alert = new Alert(AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setContentText("email đã tồn tại!");
+                alert.show();
+                return;
+          	  	}
+          	  	
+          	  	if(accountModel.findByUsername(username)!= null) {
+          	  	Alert alert = new Alert(AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setContentText("Username đã tồn tại!");
+                alert.show();
+                return;
+          	  	}
+          	  	
         	if(!email.isEmpty()) {
         		account.setEmail(email);       		
         	}

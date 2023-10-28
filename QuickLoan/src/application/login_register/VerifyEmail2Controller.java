@@ -9,6 +9,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -37,6 +39,8 @@ public class VerifyEmail2Controller implements Initializable {
     
     @FXML
     private ImageView imageView;
+    @FXML
+    private ImageView imageViewArrow;
     
     
     private String username;
@@ -51,6 +55,7 @@ public class VerifyEmail2Controller implements Initializable {
     void sendOTP(ActionEvent event) {
     	String enteredOTP = concatenateOTP();
     	if(enteredOTP.equals(verificationCode)) {
+    		
     		System.out.println("true");
             try {
             	FXMLLoader loader = new FXMLLoader(getClass().getResource("verifyPage3.fxml"));
@@ -61,13 +66,18 @@ public class VerifyEmail2Controller implements Initializable {
                 verifyController3.setUsername(username);
                 verifyController3.setPassword(password);
                 verifyController3.setFullname(fullname);
-                verifyController3.setTerm(true);
+                verifyController3.setTerm(term);
                 
                 pane3.getChildren().setAll(verifyView);
 			} catch (Exception e) {
 				
 			}
         } else {
+        	loadCurrentPage();
+        	Alert alert = new Alert(AlertType.ERROR);
+    		alert.setTitle("failed");
+    		loadCurrentPage();
+    		
             System.out.println("failed");
         }
     }
@@ -80,6 +90,8 @@ public class VerifyEmail2Controller implements Initializable {
 	    
 	    Image image = new Image(getClass().getResourceAsStream("/application/login_register/libs/image3.png"));
 	    imageView.setImage(image);
+	    Image image1 = new Image(getClass().getResourceAsStream("/application/login_register/libs/arrow_left.png"));
+	    imageViewArrow.setImage(image1);
 	}
     private void setOTPFieldListener(TextField currentField, TextField nextField, TextField previousField) {
         currentField.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -133,5 +145,43 @@ public class VerifyEmail2Controller implements Initializable {
     public void setVerificationCode(String verificationCode) {
     	this.verificationCode = verificationCode;
     }
+    @FXML
+    void backtoPage1(ActionEvent event) {
+    try {
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("verifyPage1.fxml"));
+    	AnchorPane defaultView = loader.load();
+    	
+    	VerifyEmailController1 controller = loader.getController();
+    	controller.setinputEmail(email);
+    	controller.setInputFullname(fullname);
+    	controller.setInputPassword(password);
+    	controller.setInputUsername(username);
+    	controller.setInputTerm(term);
+    	
+    	pane3.getChildren().addAll(defaultView);
+	} catch (Exception e) {
+		e.printStackTrace();
+	}  	
+    }
+    //tải  lại trang nếu failed
+    private void loadCurrentPage() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("verifyPage2.fxml"));
+            AnchorPane currentPage = loader.load();
+            VerifyEmail2Controller currentController = loader.getController();
+
+            currentController.setUsername(username);
+            currentController.setFullname(fullname);
+            currentController.setPassword(password);
+            currentController.setEmail(email);
+            currentController.setTerm(term);
+            currentController.setVerificationCode(verificationCode);
+
+            pane3.getChildren().addAll(currentPage);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 	
 }
