@@ -21,7 +21,7 @@
                   <Insets bottom="5.0" left="7.0" right="10.0" top="5.0" />
                </padding>
             </Button>
-            <Button fx:id="button_SignUp" layoutX="286.0" layoutY="16.0" mnemonicParsing="false" onAction="#buttonSignUp" style="-fx-background-color: #4C5C72;" styleClass="button-rounded-right" text="Sign Up" textFill="#ccbdbd">
+            <Button fx:id="button_SignUp" layoutX="286.0" layoutY="16.0" mnemonicParsing="false" onAction="#buttonSignUp" style="-fx-background-color: #4C5C72;" styleClass="button-rounded-right" text="Sign Up" textFill="#c1c1c1">
                <font>
                   <Font size="10.0" />
                </font>

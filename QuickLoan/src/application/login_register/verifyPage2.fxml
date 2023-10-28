@@ -65,5 +65,14 @@
             <Circle fill="#33455b" radius="6.0" stroke="#11171e" strokeType="INSIDE" />
          </children>
       </HBox>
+      <Button fx:id="button_back" layoutX="2.0" layoutY="7.0" mnemonicParsing="false" onAction="#backtoPage1" prefHeight="24.0" prefWidth="22.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fx:id="imageViewArrow" fitHeight="33.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../Downloads/arrow-left-line.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>

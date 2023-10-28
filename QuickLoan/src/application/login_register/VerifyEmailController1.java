@@ -40,6 +40,8 @@ public class VerifyEmailController1 implements Initializable {
     
     private String verificationCode;
     
+    @FXML
+    private ImageView imageView1;
     
     
     @FXML
@@ -49,6 +51,9 @@ public class VerifyEmailController1 implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
     	Image image = new Image(getClass().getResourceAsStream("/application/login_register/libs/image1.png"));
         imageView.setImage(image);
+        Image image1 = new Image(getClass().getResourceAsStream("/application/login_register/libs/arrow_left.png"));
+        imageView1.setImage(image1);
+        
 		
 	}
 
@@ -104,7 +109,7 @@ public class VerifyEmailController1 implements Initializable {
                     controller.setUsername(username);
                     controller.setPassword(password);
                     controller.setFullname(fullname);
-                    controller.setTerm(true);
+                    controller.setTerm(term);
             
                     pane2.getChildren().setAll(verifyView);
                 } catch (Exception e) {
@@ -149,6 +154,22 @@ public class VerifyEmailController1 implements Initializable {
 	public String generateVerificationCode() {
 	    Random random = new Random();
 	    return String.format("%04d", random.nextInt(10000)); // tạo mã 4 chữ số
+	}
+	//các hàm nhận về
+	public void setinputEmail(String email) {
+		input_Email1.setText(email);
+	}
+	public void setInputFullname(String fullname) {
+		this.fullname = fullname;
+	}
+	public void setInputPassword(String password) {
+		this.password = password;
+	}
+	public void setInputUsername(String username) {
+		this.username = username;
+	}
+	public void setInputTerm(Boolean term) {
+		this.term = term;
 	}
 
 	

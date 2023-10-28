@@ -1,5 +1,9 @@
 package application.login_register;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import application.model.AccountModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,24 +30,83 @@ public class RegisterPageController {
 
     @FXML
     private CheckBox inputTerm;
+    
+    @FXML
+    private Button button_imalready;
+
 
     @FXML
     private TextField inputUsername;
     
     @FXML
     private AnchorPane pane1;
+    
+    @FXML
+    private Button button_signIn;
+
 
     private String email;
     private String username;
     private String password;
     private String fullname;
-    
+    @FXML
+    void gotoSignIn(ActionEvent event) {
+    	try {
+    		
+    		FXMLLoader loader = new FXMLLoader(getClass().getResource("loginPage.fxml"));
+        	AnchorPane defaultView = loader.load();
+        	pane1.getChildren().addAll(defaultView);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+    }
 
     @FXML
     void goToVerifyPage1(ActionEvent event) {
     	try {
     		email = inputEmail.getText();
       	  	username = inputUsername.getText();
+      	  	fullname = inputFullName.getText();
+      	  	
+      	  if(fullname.isEmpty()) {
+      		Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setContentText("Vui lòng điền full name");
+            alert.show();
+            return;
+      	  }
+      	  if(username.isEmpty()) {
+      		  Alert alert = new Alert(AlertType.ERROR);
+      		  alert.setTitle("Error");
+      		  alert.setContentText("Vui lòng điền username");
+      		  alert.show();
+      		  return;
+      	  }
+      	  	
+      	  if (!EmailValidator.isValid(email) || email.isEmpty()) {
+              Alert alert = new Alert(AlertType.ERROR);
+              alert.setTitle("Error");
+              alert.setContentText("Địa chỉ email không hợp lệ!");
+              alert.show();
+              return;
+          }
+      	  	
+      	  	AccountModel accountModel = new AccountModel();
+      	  	if(accountModel.findByEmail(email) != null ) {
+      	  	Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setContentText("email đã tồn tại!");
+            alert.show();
+            return;
+      	  	}
+      	  	
+      	  	if(accountModel.findByUsername(username)!= null) {
+      	  	Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setContentText("Username đã tồn tại!");
+            alert.show();
+            return;
+      	  	}
       	  	
       	  	String password = inputPassword.getText();
       	  	if (password.length() < 8) {
@@ -51,8 +114,9 @@ public class RegisterPageController {
               alert.setTitle("Error");
               alert.setContentText("Mật khẩu phải có ít nhất 8 ký tự!");
               alert.show();
-              return; // Dừng lại ở đây và không thực hiện bất kỳ thao tác nào tiếp theo
+              return; 
           }
+      	  	
       	  	
       	  	fullname = inputFullName.getText();
       	  	boolean term = isTermAccepted();
@@ -74,6 +138,21 @@ public class RegisterPageController {
 			e.printStackTrace();
 		}
     }
+    
+    public class EmailValidator {
+        
+        
+        private static final String EMAIL_PATTERN =
+            "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$";
+
+        private static Pattern pattern = Pattern.compile(EMAIL_PATTERN);
+
+        public static boolean isValid(String email) {
+            Matcher matcher = pattern.matcher(email);
+            return matcher.matches();
+        }
+    }
+    
     public boolean isTermAccepted() {
         return inputTerm.isSelected();
     }

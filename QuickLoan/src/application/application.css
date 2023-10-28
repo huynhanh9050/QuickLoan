@@ -69,6 +69,14 @@
 .buttonLogin{
 	-fx-effect: dropshadow(gaussian, rgba(189,160,226, 0.4), 30, 0, 0, 3);
 }
+/* thụt lùi text field */
+.custom_field{
+	-fx-padding: 0 0 0 25px;
+}
+/*nét đứt */
+.dashedLine {
+    -fx-stroke-dash-array: 10 5;  /* nét 10 pixel, khoảng trắng 5 pixel */
+}
 
 
 
