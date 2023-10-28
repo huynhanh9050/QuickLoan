@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="QuickLoan/src"/>
+	<classpathentry kind="lib" path="QuickLoan/src/application/library/activation-1.1.1.jar"/>
+	<classpathentry kind="lib" path="QuickLoan/src/application/library/javax.mail-1.6.2.jar"/>
+	<classpathentry kind="lib" path="QuickLoan/src/application/library/jbcrypt-0.4.jar"/>
+	<classpathentry kind="lib" path="QuickLoan/src/application/library/mysql-connector-java-8.0.30.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
